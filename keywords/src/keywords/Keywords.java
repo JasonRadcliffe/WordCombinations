@@ -39,7 +39,7 @@ public class Keywords {
         
         //$$$$$$$Split into double array: String[][] keyword$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         String[][]keywords = new String[list.length][1];
-        for(int x=0; x<8; x++){
+        for(int x=0; x<list.length; x++){
             keywords[x] = list[x].split(",");
             System.out.println("The length of list #:" + x + " is: " + keywords[x].length);            
         }
