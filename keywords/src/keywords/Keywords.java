@@ -15,7 +15,7 @@ public class Keywords {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String inFileName = "words.txt";
-        String[] list = new String[8];
+        String[] list = new String[25];
         int lineCount = 0;
         
         
@@ -38,7 +38,7 @@ public class Keywords {
         
         
         //$$$$$$$Split into double array: String[][] keyword$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        String[][]keywords = new String[8][1];
+        String[][]keywords = new String[list.length][1];
         for(int x=0; x<8; x++){
             keywords[x] = list[x].split(",");
             System.out.println("The length of list #:" + x + " is: " + keywords[x].length);            
