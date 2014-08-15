@@ -15,15 +15,15 @@ public class Keywords {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String inFileName = "words.txt";
-        String[] keyword = new String[8];
+        String[] list = new String[8];
         int lineCount = 0;
         
         try{
             Scanner inputStream = new Scanner(new File(inFileName));
             
             while(inputStream.hasNextLine()){                
-                keyword[lineCount] = inputStream.nextLine();
-                System.out.println(keyword[lineCount]);
+                list[lineCount] = inputStream.nextLine();
+                System.out.println(list[lineCount]);
                 
                 lineCount++;
             }
@@ -32,10 +32,12 @@ public class Keywords {
             System.out.println("The file was not found...");
         }
         
-        
-        
-        System.out.println("OK:\nHere is the 5th line:");
-        System.out.println(keyword[4]);
+        String[][]keywords = new String[8][1];
+        for(int x=0; x<8; x++){
+            keywords[x] = list[x].split(",");
+            System.out.println("The length of list #:" + x + " is: " + keywords[x].length);            
+        }
+        System.out.println(keywords[7][1]);
     }
     
 }
