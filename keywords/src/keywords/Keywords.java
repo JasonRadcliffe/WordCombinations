@@ -5,13 +5,11 @@ import java.util.*;
 
 /**
  *
- * @author jradcliffe
+ * @author Jason Radcliffe
+ * August 15, 2014
  */
 public class Keywords {
-
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String inFileName = "words.txt";
@@ -20,13 +18,16 @@ public class Keywords {
         
         
         //Reading in from "words" file to String list[]----------------------------------------
+        /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ^  Preconditions: Each list of keywords is on a serperate line,
+        ^  the words are delimited by commas,
+        ^  no spaces inbetween keywords
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
         try{
             Scanner inputStream = new Scanner(new File(inFileName));
             
             while(inputStream.hasNextLine()){                
                 list[lineCount] = inputStream.nextLine();
-                System.out.println(list[lineCount]);
-                
                 lineCount++;
             }
         }
@@ -40,8 +41,7 @@ public class Keywords {
         //$$$$$$$Split into double array: String[][] keyword$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         String[][]keywords = new String[list.length][1];
         for(int x=0; x<list.length; x++){
-            keywords[x] = list[x].split(",");
-            System.out.println("The length of list #:" + x + " is: " + keywords[x].length);            
+            keywords[x] = list[x].split(",");          
         }
         //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         
@@ -60,6 +60,7 @@ public class Keywords {
         
         
         //mother of all for-loops... brace yourself
+        //The numbers here control which combination gets created.
         for(int index1=0; index1< keywords[4].length; index1++){
             for(int index2=0; index2 < keywords[0].length; index2++ ){
                 for(int index3=0; index3 < keywords[6].length; index3++){
