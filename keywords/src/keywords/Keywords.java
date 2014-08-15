@@ -13,7 +13,7 @@ public class Keywords {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String inFileName = "words.txt";
-        String[] list = new String[25];
+        List<String> list = new ArrayList<String>();
         int lineCount = 0;
         
         
@@ -26,8 +26,8 @@ public class Keywords {
         try{
             Scanner inputStream = new Scanner(new File(inFileName));
             
-            while(inputStream.hasNextLine()){                
-                list[lineCount] = inputStream.nextLine();
+            while(inputStream.hasNextLine()){ 
+                list.add(inputStream.nextLine());
                 lineCount++;
             }
         }
@@ -39,9 +39,11 @@ public class Keywords {
         
         
         //$$$$$$$Split into double array: String[][] keyword$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-        String[][]keywords = new String[list.length][1];
-        for(int x=0; x<list.length; x++){
-            keywords[x] = list[x].split(",");          
+        System.out.println(list.size());
+        
+        String[][]keywords = new String[list.size()][1];
+        for(int x=0; x<list.size(); x++){
+            keywords[x] = list.get(x).split(",");  
         }
         //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         
@@ -62,16 +64,18 @@ public class Keywords {
         //mother of all for-loops... brace yourself
         //The numbers here control which combination gets created.
         for(int index1=0; index1< keywords[4].length; index1++){
-            for(int index2=0; index2 < keywords[0].length; index2++ ){
-                for(int index3=0; index3 < keywords[6].length; index3++){
-                    for(int index4=0; index4< keywords[3].length; index4++){
-                        outputStream.println(keywords[4][index1] + " " + keywords[0][index2] + " " + keywords[6][index3] + " " + keywords[3][index4]);
-                    }
+            for(int index2=0; index2 < keywords[1].length; index2++ ){
+                for(int index3=0; index3 < keywords[3].length; index3++){
+                    outputStream.println(keywords[4][index1] + " " + keywords[1][index2] + " " + keywords[3][index3]);
+                    
+                    
+                    /*for(int index4=0; index4< keywords[3].length; index4++){
+                        outputStream.println(keywords[4][index1] + " " + keywords[1][index2] + " " + keywords[2][index3] + " " + keywords[3][index4]);
+                    }*/
+                    
                 }
             }
         }
-        
-        
         
         
         
